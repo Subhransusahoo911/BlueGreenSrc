@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Blue Pixels</title>
+    <style>
+        body {
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            height: 100vh;
+            background-color: black;
+        }
+        .pixel {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function createPixel() {
+            const pixel = document.createElement('div');
+            pixel.className = 'pixel';
+            pixel.style.left = Math.random() * window.innerWidth + 'px';
+            pixel.style.top = Math.random() * window.innerHeight + 'px';
+            document.body.appendChild(pixel);
+        }
+
+        for (let i = 0; i < 10000; i++) {
+            setTimeout(createPixel, i * 100);
+        }
+    </script>
+</body>
+</html>
